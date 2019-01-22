@@ -16,7 +16,7 @@ def scraping(query, begin_date, end_date, max_page, sleep, directory):
     for t, thumbnails in enumerate(yield_thumbnails_from_search_front(query, begin_date, end_date, max_page, sleep)):
         for i, thumbnail in enumerate(thumbnails):
             save(thumbnail, directory)
-            print('page={} / news={}, title={}'.format(t, i, thumbnail['headline']))
+            print('page={} / news={}, url={}'.format(t, i, thumbnail['url'].split('/')[-1]))
 
 def main():
     parser = argparse.ArgumentParser()
