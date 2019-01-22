@@ -5,8 +5,9 @@ from wsj_scraper import yield_thumbnails_from_search_front
 
 
 def save(json_obj, directory):
-    timestamp = '-'.join(json_obj['timestamp'].split(' ')[:3])
-    headline = json_obj['headline'][:30]
+    normalize = lambda v: v.replace(',', '').replace('.', '')
+    timestamp = '-'.join([normalize(v) for v in json_obj['timestamp'].split()[:3]])
+    headline = json_obj['url'].split('/')[-1]
     filepath = '{}/{}_{}.json'.format(directory, timestamp, headline)
     with open(filepath, 'w', encoding='utf-8') as fp:
         json.dump(json_obj, fp, indent=2, ensure_ascii=False)
