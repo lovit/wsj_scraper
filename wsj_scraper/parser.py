@@ -25,7 +25,7 @@ def parse_thumbnails(soup):
             'timestamp': parse_timestamp(div),
             'scrap_time': now()
         }
-    divs = soup.select('ul[class^=items] li[xmlns=http://www.w3.org/1999/html]')
+    divs = soup.select('ul[class^=items] li[xmlns="http://www.w3.org/1999/html"]')
     thumbnails = [to_thumbnail(div) for div in divs]
     return thumbnails
 
