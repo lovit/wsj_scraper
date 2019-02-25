@@ -92,5 +92,5 @@ Using script
 | sleep | float | 매 페이지마다의 sleep time. 검색 결과가 작으므로 큰 값으로 설정. 기본값은 10 |
 
 ```
-python scraping_search_thumbnails.py
+python scraping_search_thumbnails.py --begin_date 2019/01/20 --end_date 2019/02/25
 ```
